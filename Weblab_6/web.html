@@ -313,18 +313,19 @@
                 function getArrays() {
                     document.getElementById("ex7_p0").innerText ="Input value: " + document.getElementById("ex7_input").value;
 
-                    const sum = 0;
-                    const avg = 0;
+                    let sum = 0;
+                    let avg = 0;
                     const value = document.getElementById("ex7_input").value;
                     const arrayEx7  = value.split(",");
                     arrayEx7.sort(function(a,b){return a-b;});
 
                     let i =0;
-                    arrayEx7.array.forEach(element => {
-                        sum += element;
-                    });
                     
+                    for(i; i<arrayEx7.length;i++){
+                        sum += parseInt( arrayEx7[i]);
+                    }
                     
+                    avg= sum/arrayEx7.length;
                     
 
                    
@@ -332,7 +333,7 @@
                     document.getElementById("ex7_p1").innerText = "Min: " + arrayEx7[0];
                     document.getElementById("ex7_p2").innerText = "Max: " + arrayEx7[arrayEx7.length-1];
                     document.getElementById("ex7_p3").innerText = "Sum: " + sum;
-                    document.getElementById("ex7_p4").innerText = "Avg: " + arrayEx7.length;
+                    document.getElementById("ex7_p4").innerText = "Avg: " + avg;
                 }
             </script>
         </div>
