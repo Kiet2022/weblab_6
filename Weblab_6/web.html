@@ -299,6 +299,9 @@
                     <div class="card-body">
                         <input type="text" class="form-control" placeholder="input array of numbers, separate by comma" id="ex7_input" />
                         <Button onclick="getArrays()">Submit</Button>
+                        
+                        <p id="ex7_p0">Input value:</p>
+
                         <p id="ex7_p1">Min:</p>
                         <p id="ex7_p2">Max:</p>
                         <p id="ex7_p3">Sum:</p>
@@ -308,21 +311,28 @@
             </div>
             <script>
                 function getArrays() {
-                    document.getElementById("ex7_p1").innerText = document.getElementById("ex7_input").value;
+                    document.getElementById("ex7_p0").innerText ="Input value: " + document.getElementById("ex7_input").value;
+
+                    const sum = 0;
+                    const avg = 0;
                     const value = document.getElementById("ex7_input").value;
-                    const arrayEx7 = [];
-                    while(true){
-                        if(!value.contains(",")){
-                            break;
-                        }
-                        var commaIndex = value.indexOf(",");
-                        arrayEx7.push(value.substring(0, commaIndex));
-                        value = value.substring(commaIndex + 1);
-                    }
+                    const arrayEx7  = value.split(",");
+                    arrayEx7.sort(function(a,b){return a-b;});
 
+                    let i =0;
+                    arrayEx7.array.forEach(element => {
+                        sum += element;
+                    });
+                    
+                    
+                    
 
-                    //document.getElementById("ex5_p2").innerText = number;
-                    document.getElementById("ex7_p2").innerText = "Result: " + arrayEx7;
+                   
+                    
+                    document.getElementById("ex7_p1").innerText = "Min: " + arrayEx7[0];
+                    document.getElementById("ex7_p2").innerText = "Max: " + arrayEx7[arrayEx7.length-1];
+                    document.getElementById("ex7_p3").innerText = "Sum: " + sum;
+                    document.getElementById("ex7_p4").innerText = "Avg: " + arrayEx7.length;
                 }
             </script>
         </div>
